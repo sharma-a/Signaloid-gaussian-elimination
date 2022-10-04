@@ -19,7 +19,7 @@ void printMatrix(Matrix *m){
 }
 
 void initialiseMatrix(Matrix* m, int nRow, int nCol){
-    int i,j;
+    int i;
     m->nRow=nRow;
     m->nCol=nCol;
     m->mat=(double*) malloc(nRow * nCol* sizeof(double));

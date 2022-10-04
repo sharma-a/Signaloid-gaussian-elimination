@@ -26,6 +26,8 @@ int main(){
 
    double* soln=(double*) malloc(N*sizeof(double));
 
+   printMatrix(&A);
+
    solveEqn(&A,soln);
    printf("\n");
    for(int i=0;i<N;++i)

@@ -49,7 +49,7 @@ void solveEqn(Matrix *in, double* soln){
 void gaussJordan(Matrix *in, Matrix *outm){
     int nRow=in->nRow;
     int nCol=in->nCol;
-    int j, out, row, col;
+    int out, row, col;
     for(out=0;out<nRow;++out){
         double tmp=*at(in,out,out);
         for(col=0;col<nCol;++col){
