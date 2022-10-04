@@ -12,7 +12,7 @@ void printMatrix(Matrix *m){
     printf("\n");
     for(i=0;i<m->nRow;++i){
         for(j=0;j<m->nCol;++j){
-            printf("%12.4lf",*at(m,i,j));
+            printf("%12.5lf   ",*at(m,i,j));
         }
         printf("\n");
     }
