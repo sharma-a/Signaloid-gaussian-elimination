@@ -2,8 +2,8 @@
 
 # Explicitely specify which files to compile
 SOURCES = \
-    matrix.c
-    gauss.c
+    matrix.c\
+    gauss.c\
 	main.c
 
 
