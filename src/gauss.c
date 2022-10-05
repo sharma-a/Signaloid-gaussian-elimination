@@ -1,7 +1,7 @@
 #include "matrix.h"
 #define __ABS__(x) ((x)>0?(x):-(x))
 
-
+/*
 void gaussTriangulise(Matrix *in){
     int nRow=in->nRow;
     int nCol=in->nCol;
@@ -43,6 +43,51 @@ void solveEqn(Matrix *in, double* soln){
         soln[i]/=*at(in,i,i);
     }
 }
+*/
+
+
+
+void gaussTriangulise(Matrix *in){
+    int nRow=in->nRow;
+    int nCol=in->nCol;
+    int j, out, row, col;
+    for(out=0;out<nRow-1;++out){
+        int maxIndex=out;
+        double *maxPtr=at(in,maxIndex,out);
+        for(j=out+1;j<nRow;++j){
+            double* thisPtr=at(in,j,out);
+            if(__ABS__(*thisPtr)>__ABS__(*maxPtr)) {maxIndex=j;maxPtr=thisPtr;}
+        }
+        swapRow(in,out,maxIndex);
+
+        for(row=out+1;row<nRow;++row){
+            double alpha=*(at(in,row,out))/(*maxPtr);
+            for(col=0;col<nCol;++col){
+                *at(in,row,col)-=*at(in,out,col)*alpha;
+            }
+        }
+    }
+}
+
+
+void solveEqn(Matrix *in, double* soln){
+    int nRow=in->nRow;
+    int nCol=in->nCol;
+    int i,j;
+    if(nCol!=nRow+1) return;
+    gaussTriangulise(in);
+    for(i=nRow-1;i>=0;--i){
+        soln[i]=*at(in,i,nRow);
+        for(j=nRow-1;j>=0;--j){
+            if(i==j) continue;
+            soln[i]-=*at(in,i,j)*soln[j];
+        }
+        soln[i]/=*at(in,i,i);
+    }
+}
+
+
+
 
 
 
