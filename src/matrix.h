@@ -26,10 +26,11 @@ void gaussTriangulise(Matrix *in);
 
 void gaussJordan(Matrix *in, Matrix *out);
 
-
 void solveEqn(Matrix *in, double* soln);
 
+void solveTriangular(Matrix* in, double* soln);
 
+void freeMatrix(Matrix *in);
 
 
 #endif

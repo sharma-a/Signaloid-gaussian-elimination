@@ -70,16 +70,14 @@ void gaussTriangulise(Matrix *in){
 }
 
 
-void solveEqn(Matrix *in, double* soln){
+void solveTriangular(Matrix* in, double* soln){
     int nRow=in->nRow;
     int nCol=in->nCol;
     int i,j;
-    if(nCol!=nRow+1) return;
-    gaussTriangulise(in);
     for(i=nRow-1;i>=0;--i){
         soln[i]=*at(in,i,nRow);
         for(j=nRow-1;j>=0;--j){
-            if(i==j) continue;
+            if(j==i) continue; 
             soln[i]-=*at(in,i,j)*soln[j];
         }
         soln[i]/=*at(in,i,i);
@@ -87,7 +85,15 @@ void solveEqn(Matrix *in, double* soln){
 }
 
 
-
+void solveEqn(Matrix *in, double* soln){
+    int nRow=in->nRow;
+    int nCol=in->nCol;
+    int i;
+    if(nCol!=nRow+1) return;
+    gaussTriangulise(in);
+    for(i=0;i<nCol;++i) soln[i]=0.0f;
+    solveTriangular(in, soln);
+}
 
 
 

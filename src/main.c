@@ -9,7 +9,7 @@ double uniformRandom(double min, double max){
 }
 
 int main(){
-   srandom(1234);
+   srandom(34);
 
    Matrix A;
    int i,j,nRow, nCol;
@@ -34,6 +34,11 @@ int main(){
        printf("%7.5lf  ",soln[i]);
 
    printf("\n");
+
+
+   freeMatrix(&A);
+   free(soln);
+
    return 0;
    
 }

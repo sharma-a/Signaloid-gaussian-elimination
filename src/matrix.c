@@ -50,3 +50,7 @@ void getColumnPointers(double** out,Matrix* m,int j){
         out[i]=m->mat+m->nCol*(m->indices[i])+j;
 }
 
+void freeMatrix(Matrix *in){
+    free(in->mat);
+    free(in->indices);
+}
