@@ -91,7 +91,7 @@ void solveEqn(Matrix *in, double* soln){
     int i;
     if(nCol!=nRow+1) return;
     gaussTriangulise(in);
-    for(i=0;i<nCol;++i) soln[i]=0.0f;
+    for(i=0;i<nRow;++i) soln[i]=0.0f;
     solveTriangular(in, soln);
 }
 
