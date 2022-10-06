@@ -72,7 +72,6 @@ void gaussTriangulise(Matrix *in){
 
 void solveTriangular(Matrix* in, double* soln){
     int nRow=in->nRow;
-    int nCol=in->nCol;
     int i,j;
     for(i=nRow-1;i>=0;--i){
         soln[i]=*at(in,i,nRow);
