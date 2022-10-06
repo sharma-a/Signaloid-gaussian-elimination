@@ -54,6 +54,14 @@ int main(){
 
    printf("\n");
 
+   for(int ii=0;ii<4;++ii){
+       solveTriangular(&A,soln);
+       for(int i=0;i<N;++i)
+           printf("%7.5lf  ",soln[i]);
+
+       printf("\n");
+   }
+
 
    freeMatrix(&A);
    free(soln);
