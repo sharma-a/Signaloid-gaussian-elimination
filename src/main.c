@@ -7,7 +7,7 @@
 int main(){
 
    Matrix A;
-   int i,j,nRow, nCol;
+   int nRow, nCol;
    int N=3;
    nRow=N;
    nCol=N+1;
@@ -25,19 +25,19 @@ int main(){
        double sampleb0[]={43.2,40.2,46.3};
        double sampleb1[]={23.2,22.8,23.3};
        double sampleb2[]={-13.2,-12.8,-15.0};
-       *at(&A,0,0) = libUncertainDoubleDistFromSamples(sampleA00,sizeof(samples)/sizeof(double));
-       *at(&A,0,1) = libUncertainDoubleDistFromSamples(sampleA01,sizeof(samples)/sizeof(double));
-       *at(&A,0,2) = libUncertainDoubleDistFromSamples(sampleA02,sizeof(samples)/sizeof(double));
-       *at(&A,1,0) = libUncertainDoubleDistFromSamples(sampleA10,sizeof(samples)/sizeof(double));
-       *at(&A,1,1) = libUncertainDoubleDistFromSamples(sampleA11,sizeof(samples)/sizeof(double));
-       *at(&A,1,2) = libUncertainDoubleDistFromSamples(sampleA12,sizeof(samples)/sizeof(double));
-       *at(&A,2,0) = libUncertainDoubleDistFromSamples(sampleA20,sizeof(samples)/sizeof(double));
-       *at(&A,2,1) = libUncertainDoubleDistFromSamples(sampleA21,sizeof(samples)/sizeof(double));
-       *at(&A,2,2) = libUncertainDoubleDistFromSamples(sampleA22,sizeof(samples)/sizeof(double));
+       *at(&A,0,0) = libUncertainDoubleDistFromSamples(sampleA00,sizeof(sampleA00)/sizeof(double));
+       *at(&A,0,1) = libUncertainDoubleDistFromSamples(sampleA01,sizeof(sampleA01)/sizeof(double));
+       *at(&A,0,2) = libUncertainDoubleDistFromSamples(sampleA02,sizeof(sampleA02)/sizeof(double));
+       *at(&A,1,0) = libUncertainDoubleDistFromSamples(sampleA10,sizeof(sampleA10)/sizeof(double));
+       *at(&A,1,1) = libUncertainDoubleDistFromSamples(sampleA11,sizeof(sampleA11)/sizeof(double));
+       *at(&A,1,2) = libUncertainDoubleDistFromSamples(sampleA12,sizeof(sampleA12)/sizeof(double));
+       *at(&A,2,0) = libUncertainDoubleDistFromSamples(sampleA20,sizeof(sampleA20)/sizeof(double));
+       *at(&A,2,1) = libUncertainDoubleDistFromSamples(sampleA21,sizeof(sampleA21)/sizeof(double));
+       *at(&A,2,2) = libUncertainDoubleDistFromSamples(sampleA22,sizeof(sampleA22)/sizeof(double));
 
-       *at(&A,0,3) = libUncertainDoubleDistFromSamples(sampleb0,sizeof(samples)/sizeof(double));
-       *at(&A,1,3) = libUncertainDoubleDistFromSamples(sampleb1,sizeof(samples)/sizeof(double));
-       *at(&A,2,3) = libUncertainDoubleDistFromSamples(sampleb2,sizeof(samples)/sizeof(double));
+       *at(&A,0,3) = libUncertainDoubleDistFromSamples(sampleb0,sizeof(sampleb0)/sizeof(double));
+       *at(&A,1,3) = libUncertainDoubleDistFromSamples(sampleb1,sizeof(sampleb1)/sizeof(double));
+       *at(&A,2,3) = libUncertainDoubleDistFromSamples(sampleb2,sizeof(sampleb2)/sizeof(double));
    }
 
 
