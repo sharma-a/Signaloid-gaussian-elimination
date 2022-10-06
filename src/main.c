@@ -36,6 +36,8 @@ int main(){
    printMatrix(&A);
 
    solveEqn(&A,soln);
+   printf("After triangulising:\n");
+   printMatrix(&A);
    printf("\n");
    for(int i=0;i<N;++i)
        printf("%7.5lf  ",soln[i]);
