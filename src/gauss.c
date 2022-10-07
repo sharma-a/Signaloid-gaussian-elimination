@@ -2,7 +2,6 @@
 #include <uncertain.h>
 #define __ABS__(x) ((x)>0?(x):-(x))
 
-/*
 void gaussTriangulise(Matrix *in){
     int nRow=in->nRow;
     int nCol=in->nCol;
@@ -44,11 +43,10 @@ void solveEqn(Matrix *in, double* soln){
         soln[i]/=*at(in,i,i);
     }
 }
-*/
 
 
 
-void gaussTriangulise(Matrix *in){
+/*void gaussTriangulise(Matrix *in){
     int nRow=in->nRow;
     int nCol=in->nCol;
     int j, out, row, col;
@@ -69,7 +67,7 @@ void gaussTriangulise(Matrix *in){
         }
     }
 }
-
+*/
 
 void solveTriangular(Matrix* in, double* soln){
     int nRow=in->nRow;
@@ -85,7 +83,7 @@ void solveTriangular(Matrix* in, double* soln){
 }
 
 
-void solveEqn(Matrix *in, double* soln){
+/*void solveEqn(Matrix *in, double* soln){
     int nRow=in->nRow;
     int nCol=in->nCol;
     int i,j;
@@ -100,7 +98,7 @@ void solveEqn(Matrix *in, double* soln){
     }
 }
 
-/*void solveEqn(Matrix *in, double* soln){
+void solveEqn(Matrix *in, double* soln){
     int nRow=in->nRow;
     int nCol=in->nCol;
     int i;
