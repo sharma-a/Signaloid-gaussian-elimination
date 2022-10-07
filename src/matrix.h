@@ -24,7 +24,7 @@ void getColumnPointers(double** out,Matrix* m,int j);
 
 void gaussTriangulise(Matrix *in);
 
-void gaussJordan(Matrix *in, Matrix *out);
+void gaussJordan(Matrix *in);
 
 void solveEqn(Matrix *in, double* soln);
 

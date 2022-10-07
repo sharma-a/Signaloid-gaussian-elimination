@@ -35,11 +35,15 @@ int main(){
 
    printMatrix(&A);
 
-   solveEqn(&A,soln);
-   printf("After triangulising:\n");
+  // solveEqn(&A,soln);
+   gaussJordan(&A);
+   printf("After Gauss Jordan:\n");
    printMatrix(&A);
-   printf("\n");
+
+
+   printf("Soln:\n");
    for(int i=0;i<N;++i)
+       soln[i]=*(&A,i,nCol-1)/(*at(&A,i,i));
        printf("%7.5lf  ",soln[i]);
 
    printf("\n");

@@ -108,9 +108,34 @@ void solveEqn(Matrix *in, double* soln){
     solveTriangular(in, soln);
 }*/
 
+void gaussJordan(Matrix *in){
+    int nRow=in->nRow;
+    int nCol=in->nCol;
+    int j, outerLoop, row, col;
+
+    for(outerLoop=0;outerLoop<nRow;++outerLoop){
+        //find the maximum abs value in in[,outerLoop] 
+        int maxIndex=outerLoop;
+        double *maxPtr=at(in,outerLoop,outerLoop);
+        for(j=outerLoop+1;j<nRow;++j){
+            double *thisPtr=at(in,j,outerLoop);
+            if(__ABS__(*thisPtr)>__ABS__(*maxPtr)) {maxPtr=thisPtr; maxIndex=j;}
+        }
+        if(maxIndex!=outerLoop) swapRow(in,outerLoop,maxIndex);
+
+        for(row=0;row<nRow;row++){
+            if(row==outerLoop) continue;
+            double alpha=*at(in,row,outerLoop)/(*maxPtr);
+            *at(in,row,outerLoop)=0.0f;
+            for(col=outerLoop+1;col<nRow+1;++col){
+                *at(in,row,col)-=alpha*(*at(in,outerLoop,col));
+            }
+        }
+    }
+}
 
 
-void gaussJordan(Matrix *in, Matrix *outm){
+/*void gaussJordan(Matrix *in, Matrix *outm){
     int nRow=in->nRow;
     int nCol=in->nCol;
     int out, row, col;
@@ -130,3 +155,4 @@ void gaussJordan(Matrix *in, Matrix *outm){
         }
     }
 }
+*/
