@@ -93,7 +93,7 @@ void solveEqn(Matrix *in, double* soln){
     for(i=nRow-1;i>=0;--i){
         soln[i]=*at(in,i,nRow);
         for(j=nRow-1;j>i;--j){
-            soln[i]-=*at(in,i,j)*soln[j];
+            soln[i]-=*at(in,i,j)*libUncertainDoubleNthMoment(soln[j],1);
         }
         soln[i]/=*at(in,i,i);
     }
