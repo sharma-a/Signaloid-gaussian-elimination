@@ -43,7 +43,7 @@ int main(){
 
    printf("Soln:\n");
    for(int i=0;i<N;++i)
-       soln[i]=*(&A,i,nCol-1)/(*at(&A,i,i));
+       soln[i]=*at(&A,i,nCol-1)/(*at(&A,i,i));
        printf("%7.5lf  ",soln[i]);
 
    printf("\n");

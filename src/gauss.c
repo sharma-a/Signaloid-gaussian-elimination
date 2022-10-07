@@ -110,7 +110,6 @@ void solveEqn(Matrix *in, double* soln){
 
 void gaussJordan(Matrix *in){
     int nRow=in->nRow;
-    int nCol=in->nCol;
     int j, outerLoop, row, col;
 
     for(outerLoop=0;outerLoop<nRow;++outerLoop){
