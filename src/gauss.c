@@ -1,4 +1,5 @@
 #include "matrix.h"
+#include <uncertain.h>
 #define __ABS__(x) ((x)>0?(x):-(x))
 
 /*
