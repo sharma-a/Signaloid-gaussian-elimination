@@ -19,7 +19,7 @@ int main(){
        double sampleA02[]={5.3,5.8,5.0};
        double sampleA10[]={-3,-3.8,-3.5};
        double sampleA11[]={23.2,22.8,23.3};
-       double sampleA12[]={-7.2,7.8,8.1};
+       double sampleA12[]={7.2,7.8,8.1};
        double sampleA20[]={10.2,12.8,10.6};
        double sampleA21[]={0.8,1.2,0.8};
        double sampleA22[]={-3.2,-2.8,-3.3};
