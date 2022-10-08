@@ -44,7 +44,7 @@ int main(){
 
    for(int i=0;i<nRow;++nRow){
       for(int j=0;j<nCol;++j){
-         *at(B,i,j)=*at(A,i,j);
+         *at(&B,i,j)=*at(&A,i,j);
       }
    }
 
@@ -71,13 +71,12 @@ int main(){
 
 
    double* solnB=(double*) malloc(N*sizeof(double));
-   solveEqn(&B,colnB);
+   solveEqn(&B,solnB);
 
 
    printf("Soln Triangulise:\n");
    for(int i=0;i<N;++i){
-       soln[i]=*at(&A,i,nCol-1)/(*at(&A,i,i));
-       printf("%7.5lf  ",soln[i]);
+       printf("%7.5lf  ",solnB[i]);
    }
    printf("\n");
 
