@@ -22,6 +22,9 @@ int main(int argc, char *argv[]){
    nCol=N+1;
    initialiseMatrix(&A,nRow,nCol);
    initialiseMatrix(&B,nRow,nCol);
+
+    FILE *fptr;
+   if(!(fptr=fopen("mnt/Abmat","w"))) {printf ("\nFile Error.\n"); return -1;}
        
 
    for(int i=0;i<nRow;++i){
@@ -30,10 +33,12 @@ int main(int argc, char *argv[]){
           double sigma=uniformRandom(.3,1.5);
           *at(&A,i,j)=libUncertainDoubleGaussDist(mu,sigma);
           *at(&B,i,j)=*at(&A,i,j);
+           fprintf(fptr,"%lf, %lf\n",mu, sigma);
       }
    }
 
 
+   fclose(fptr);
 
  
 
@@ -47,14 +52,17 @@ int main(int argc, char *argv[]){
    //printf("After Gauss Jordan:\n");
    //printMatrix(&A);
 
+   if(!(fptr=fopen("mnt/Absoln","w"))) {printf ("\nFile Error.\n"); return -1;}
+
 
    printf("Soln:\n");
    for(int i=0;i<N;++i){
        soln[i]=*at(&A,i,nCol-1)/(*at(&A,i,i));
        printf("%7.5lf  ",soln[i]);
+       fprintf(fptr,"%lf, %lf, %lf\n",soln[i],libUncertainDoubleNthMoment(soln[i],1), libUncertainDoubleNthMoment(soln[i],2));
    }
    printf("\n");
-
+   fclose(fptr);
 
 
    double* solnB=(double*) malloc(N*sizeof(double));
