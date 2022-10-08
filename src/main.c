@@ -15,7 +15,7 @@ int main(){
    initialiseMatrix(&A,nRow,nCol);
    initialiseMatrix(&B,nRow,nCol);
    {
-       double sampleA00[]={3.2,2.8,3.3};
+      /* double sampleA00[]={3.2,2.8,3.3};
        double sampleA01[]={13.8,10.5,12.3};
        double sampleA02[]={5.3,5.8,5.0};
        double sampleA10[]={-3,-3.8,-3.5};
@@ -39,8 +39,22 @@ int main(){
 
        *at(&A,0,3) = libUncertainDoubleDistFromSamples(sampleb0,sizeof(sampleb0)/sizeof(double));
        *at(&A,1,3) = libUncertainDoubleDistFromSamples(sampleb1,sizeof(sampleb1)/sizeof(double));
-       *at(&A,2,3) = libUncertainDoubleDistFromSamples(sampleb2,sizeof(sampleb2)/sizeof(double));
+       *at(&A,2,3) = libUncertainDoubleDistFromSamples(sampleb2,sizeof(sampleb2)/sizeof(double));*/
    }
+
+   *at(&A,0,0)=libUncertainDoubleUniformDist(4.5,5.3);
+   *at(&A,0,1)=libUncertainDoubleUniformDist(0.6,1.0);
+   *at(&A,0,2)=libUncertainDoubleUniformDist(2.9,3.3);
+   *at(&A,1,0)=libUncertainDoubleUniformDist(7.0,7.3);
+   *at(&A,1,1)=libUncertainDoubleUniformDist(-4.5,-5.0);
+   *at(&A,1,2)=libUncertainDoubleUniformDist(-2.5,-2.8);
+   *at(&A,2,0)=libUncertainDoubleUniformDist(10.8,11.0);
+   *at(&A,2,1)=libUncertainDoubleUniformDist(-5.5,-5.3);
+   *at(&A,2,2)=libUncertainDoubleUniformDist(8.5,8.7);
+
+   *at(&A,0,3)=libUncertainDoubleUniformDist(50.0,53.0);
+   *at(&A,1,3)=libUncertainDoubleUniformDist(12.3,15.0);
+   *at(&A,2,3)=libUncertainDoubleUniformDist(34.5,35.3);
 
    for(int i=0;i<nRow;++i){
       for(int j=0;j<nCol;++j){
@@ -56,7 +70,8 @@ int main(){
 
    printMatrix(&A);
 
-   gaussJordan(&A);
+   solveEqn(&A,soln);
+
    printf("After Gauss Jordan:\n");
    printMatrix(&A);
 
