@@ -1,6 +1,4 @@
 #include "matrix.h"
-#include <uncertain.h>
-#define __ABS__(x) ((x)>0?(x):-(x))
 
 void gaussTriangulise(Matrix *in){
     int nRow=in->nRow;
@@ -18,7 +16,7 @@ void gaussTriangulise(Matrix *in){
         for(row=out+1;row<nRow;++row){
             double alpha=*(at(in,row,out))/(*maxPtr);
             for(col=0;col<nCol;++col){
-                if(col<=out) *at(in,row,col)=0.0f;//remove this to take care of randomization.
+                if(col<=out) *at(in,row,col)=0.0f;
                 else{
                     *at(in,row,col)-=*at(in,out,col)*alpha;
                 } 

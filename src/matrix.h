@@ -1,6 +1,7 @@
 #ifndef __MATRIX_H
 #define __MATRIX_H
 
+#define __ABS__(x) ((x)>0?(x):-(x))
 
 typedef struct Matrix_{
     int nRow;
