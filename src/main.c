@@ -17,7 +17,7 @@ int main(){
    srandom(time(NULL));
    Matrix A,B;
    int nRow, nCol;
-   int N=4;
+   int N=10;
    nRow=N;
    nCol=N+1;
    initialiseMatrix(&A,nRow,nCol);
@@ -53,7 +53,7 @@ int main(){
 
 
    for(int i=0;i<nRow;++i){
-      for(int j=0;j<nRow;++j){
+      for(int j=0;j<nCol;++j){
           double mu=uniformRandom(-10,10);
           double sigma=uniformRandom(.3,1.5);
           *at(&A,i,j)=libUncertainDoubleGaussDist(mu,sigma);
