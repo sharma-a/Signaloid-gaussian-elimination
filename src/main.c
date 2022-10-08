@@ -42,7 +42,7 @@ int main(){
        *at(&A,2,3) = libUncertainDoubleDistFromSamples(sampleb2,sizeof(sampleb2)/sizeof(double));
    }
 
-   for(int i=0;i<nRow;++nRow){
+   for(int i=0;i<nRow;++i){
       for(int j=0;j<nCol;++j){
          *at(&B,i,j)=*at(&A,i,j);
       }
