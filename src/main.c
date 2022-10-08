@@ -41,13 +41,8 @@ int main(int argc, char *argv[]){
 
    //printMatrix(&A);
 
-   clock_t beg,end;
-   double tm;
-
-   beg=clock();
    solveEqnGaussJordan(&A,soln);
 
-   end=clock();
 
    tm=(double)(end-beg)/CLOCKS_PER_SEC;
    //printf("After Gauss Jordan:\n");
@@ -66,10 +61,7 @@ int main(int argc, char *argv[]){
 
    double* solnB=(double*) malloc(N*sizeof(double));
 
-   beg=clock();
    solveEqn(&B,solnB);
-   end=clock();
-   tm=(double)(end-beg)/CLOCKS_PER_SEC;
 
    
 
@@ -79,7 +71,6 @@ int main(int argc, char *argv[]){
    }
    printf("\n");
 
-   printf("Time taken:%lf\n",tm);
 
 
 
