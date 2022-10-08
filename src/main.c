@@ -70,7 +70,7 @@ int main(){
 
    printMatrix(&A);
 
-   solveEqn(&A,soln);
+   solveEqnGaussJordan(&A,soln);
 
    printf("After Gauss Jordan:\n");
    printMatrix(&A);
