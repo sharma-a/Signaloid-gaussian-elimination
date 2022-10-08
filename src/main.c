@@ -43,7 +43,7 @@ int main(){
    }
 
    *at(&A,0,0)=libUncertainDoubleUniformDist(4.5,5.3);
-   *at(&A,0,1)=libUncertainDoubleUniformDist(0.6,1.0);
+   *at(&A,0,1)=libUncertainDoubleGaussDist(11.6,1.0);
    *at(&A,0,2)=libUncertainDoubleUniformDist(2.9,3.3);
    *at(&A,1,0)=libUncertainDoubleUniformDist(7.0,7.3);
    *at(&A,1,1)=libUncertainDoubleUniformDist(-4.5,-5.0);
