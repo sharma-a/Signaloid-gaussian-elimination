@@ -10,11 +10,12 @@
 int main(int argc, char *argv[]){
     Matrix A,B;
     int nRow, nCol;
-    int N=3
+    int N=3;
     nRow=N;
     nCol=N+1;
     initialiseMatrix(&A,nRow,nCol);
     initialiseMatrix(&B,nRow,nCol);
+    FILE *fptr;
    
    {
        double sampleA00[]={3.2,2.8,3.3};
