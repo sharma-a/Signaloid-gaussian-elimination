@@ -17,7 +17,7 @@ int main(){
    srandom(time(NULL));
    Matrix A,B;
    int nRow, nCol;
-   int N=10;
+   int N=5;
    nRow=N;
    nCol=N+1;
    initialiseMatrix(&A,nRow,nCol);
