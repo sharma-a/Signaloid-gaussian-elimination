@@ -76,6 +76,6 @@ void solveEqnGaussJordan(Matrix *in, double* soln){
     int nCol=in->nCol;
     gaussJordan(in);
     for(int i=0;i<nRow;++i){
-       soln[i]=*at(&A,i,nCol-1)/(*at(&A,i,i));
+       soln[i]=*at(in,i,nCol-1)/(*at(in,i,i));
    }
 } 
