@@ -24,10 +24,10 @@ int main(int argc, char *argv[]){
    initialiseMatrix(&B,nRow,nCol);
 
     FILE *fptr;
-   if(!(fptr=fopen("mnt/Abmat","w"))) {printf ("\nFile Error.\n"); return -1;}
+   if(!(fptr=fopen("mnt/mnt/Abinp","r"))) {printf ("\nFile Error.\n"); return -1;}
        
 
-   for(int i=0;i<nRow;++i){
+   /*for(int i=0;i<nRow;++i){
       for(int j=0;j<nCol;++j){
           double mu=uniformRandom(-10,10);
           double sigma=uniformRandom(.3,1.5);
@@ -35,7 +35,19 @@ int main(int argc, char *argv[]){
           *at(&B,i,j)=*at(&A,i,j);
            fprintf(fptr,"%.4f, %.4f\n",mu, sigma);
       }
+   }*/
+
+ for(int i=0;i<nRow;++i){
+      for(int j=0;j<nCol;++j){
+          double mu;
+          double sigma;
+          fscanf(fptr,"%lf,%lf\n",&mu,&sigma);
+          *at(&A,i,j)=libUncertainDoubleGaussDist(mu,sigma);
+          *at(&B,i,j)=*at(&A,i,j);
+      }
    }
+
+
 
 
    fclose(fptr);
