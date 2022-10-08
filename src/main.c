@@ -44,7 +44,6 @@ int main(int argc, char *argv[]){
    solveEqnGaussJordan(&A,soln);
 
 
-   tm=(double)(end-beg)/CLOCKS_PER_SEC;
    //printf("After Gauss Jordan:\n");
    //printMatrix(&A);
 
@@ -56,7 +55,6 @@ int main(int argc, char *argv[]){
    }
    printf("\n");
 
-   printf("Time taken:%lf\n",tm);
 
 
    double* solnB=(double*) malloc(N*sizeof(double));
