@@ -7,12 +7,13 @@
 int main(){
 
 
-   Matrix A;
+   Matrix A,B;
    int nRow, nCol;
    int N=3;
    nRow=N;
    nCol=N+1;
    initialiseMatrix(&A,nRow,nCol);
+   initialiseMatrix(&B,nRow,nCol);
    {
        double sampleA00[]={3.2,2.8,3.3};
        double sampleA01[]={13.8,10.5,12.3};
@@ -41,6 +42,13 @@ int main(){
        *at(&A,2,3) = libUncertainDoubleDistFromSamples(sampleb2,sizeof(sampleb2)/sizeof(double));
    }
 
+   for(int i=0;i<nRow;++nRow){
+      for(int j=0;j<nCol;++j){
+         *at(B,i,j)=*at(A,i,j);
+      }
+   }
+
+
 
  
 
@@ -59,6 +67,25 @@ int main(){
        printf("%7.5lf  ",soln[i]);
    }
    printf("\n");
+
+
+
+   double* solnB=(double*) malloc(N*sizeof(double));
+   solveEqn(&B,colnB);
+
+
+   printf("Soln Triangulise:\n");
+   for(int i=0;i<N;++i){
+       soln[i]=*at(&A,i,nCol-1)/(*at(&A,i,i));
+       printf("%7.5lf  ",soln[i]);
+   }
+   printf("\n");
+
+
+
+
+   freeMatrix(&B);
+   free(solnB);
 
 
    freeMatrix(&A);
