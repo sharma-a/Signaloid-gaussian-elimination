@@ -28,6 +28,8 @@ void gaussJordan(Matrix *in);
 
 void solveEqn(Matrix *in, double* soln);
 
+void solveEqnGaussJordan(Matrix *in, double* soln);
+
 void solveTriangular(Matrix* in, double* soln);
 
 void freeMatrix(Matrix *in);
