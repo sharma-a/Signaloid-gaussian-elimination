@@ -41,6 +41,8 @@ int main(int argc, char *argv[]){
       for(int j=0;j<nCol;++j){
           double mu;
           double sigma;
+
+          printf("%lf,%lf\n",mu,sigma);
           fscanf(fptr,"%lf,%lf\n",&mu,&sigma);
           *at(&A,i,j)=libUncertainDoubleGaussDist(mu,sigma);
           *at(&B,i,j)=*at(&A,i,j);
