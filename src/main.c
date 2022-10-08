@@ -4,17 +4,26 @@
 #include <stdlib.h>
 #include <uncertain.h>
 
+
+
+
+double uniformRandom(double min, double max){
+    return min+(max-min)*((double)random()/RAND_MAX);
+}
+
+
 int main(){
 
-
+   srandom(time(NULL));
    Matrix A,B;
    int nRow, nCol;
-   int N=3;
+   int N=30;
    nRow=N;
    nCol=N+1;
    initialiseMatrix(&A,nRow,nCol);
    initialiseMatrix(&B,nRow,nCol);
    {
+       
       /* double sampleA00[]={3.2,2.8,3.3};
        double sampleA01[]={13.8,10.5,12.3};
        double sampleA02[]={5.3,5.8,5.0};
@@ -42,22 +51,12 @@ int main(){
        *at(&A,2,3) = libUncertainDoubleDistFromSamples(sampleb2,sizeof(sampleb2)/sizeof(double));*/
    }
 
-   *at(&A,0,0)=libUncertainDoubleUniformDist(4.5,5.3);
-   *at(&A,0,1)=libUncertainDoubleGaussDist(11.6,1.0);
-   *at(&A,0,2)=libUncertainDoubleUniformDist(2.9,3.3);
-   *at(&A,1,0)=libUncertainDoubleUniformDist(7.0,7.3);
-   *at(&A,1,1)=libUncertainDoubleUniformDist(-4.5,-5.0);
-   *at(&A,1,2)=libUncertainDoubleUniformDist(-2.5,-2.8);
-   *at(&A,2,0)=libUncertainDoubleUniformDist(10.8,11.0);
-   *at(&A,2,1)=libUncertainDoubleUniformDist(-5.5,-5.3);
-   *at(&A,2,2)=libUncertainDoubleUniformDist(8.5,8.7);
-
-   *at(&A,0,3)=libUncertainDoubleUniformDist(50.0,53.0);
-   *at(&A,1,3)=libUncertainDoubleUniformDist(12.3,15.0);
-   *at(&A,2,3)=libUncertainDoubleUniformDist(34.5,35.3);
 
    for(int i=0;i<nRow;++i){
-      for(int j=0;j<nCol;++j){
+      for(int j=0;j<nRow;++j){
+          double mu=uniformRandom(-10,10);
+          double sigma=uniformRandom(.3,1.5);
+          *at(&A,i,j)=libUncertainDoubleGaussDist(mu,sigma);
          *at(&B,i,j)=*at(&A,i,j);
       }
    }
