@@ -33,7 +33,7 @@ int main(int argc, char *argv[]){
           double sigma=uniformRandom(.3,1.5);
           *at(&A,i,j)=libUncertainDoubleGaussDist(mu,sigma);
           *at(&B,i,j)=*at(&A,i,j);
-           fprintf(fptr,"%lf, %lf\n",mu, sigma);
+           fprintf(fptr,"%.4f, %.4f\n",mu, sigma);
       }
    }
 
@@ -58,8 +58,8 @@ int main(int argc, char *argv[]){
    printf("Soln:\n");
    for(int i=0;i<N;++i){
        soln[i]=*at(&A,i,nCol-1)/(*at(&A,i,i));
-       printf("%7.5lf  ",soln[i]);
-       fprintf(fptr,"%lf, %lf, %lf\n",soln[i],libUncertainDoubleNthMoment(soln[i],1), libUncertainDoubleNthMoment(soln[i],2));
+       printf("%.4lf, %.4lf, %.4lf\n",soln[i],libUncertainDoubleNthMoment(soln[i],1), libUncertainDoubleNthMoment(soln[i],2));
+       fprintf(fptr,"%.4lf, %.4lf, %.4lf\n",soln[i],libUncertainDoubleNthMoment(soln[i],1), libUncertainDoubleNthMoment(soln[i],2));
    }
    printf("\n");
    fclose(fptr);
