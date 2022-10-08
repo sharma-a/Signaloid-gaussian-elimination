@@ -39,7 +39,6 @@ int main(int argc, char *argv[]){
     if(!(fptr=fopen("mnt/Absoln","w"))) {printf ("\nFile Error.\n"); return -1;}
     printf("Soln:\n");
     for(int i=0;i<N;++i){
-       soln[i]=*at(&A,i,nCol-1)/(*at(&A,i,i));
        printf("%.4lf, %.4lf, %.4lf\n",soln[i],libUncertainDoubleNthMoment(soln[i],1), libUncertainDoubleNthMoment(soln[i],2));
        fprintf(fptr,"%.4lf, %.4lf, %.4lf\n",soln[i],libUncertainDoubleNthMoment(soln[i],1), libUncertainDoubleNthMoment(soln[i],2));
     }
