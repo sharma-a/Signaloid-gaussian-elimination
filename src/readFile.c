@@ -59,7 +59,7 @@ Matrix* readFromFile(char* filename){
 }
 
 
-void printSoln(double* soln){
+void printSoln(double* soln, int nRow){
     printf("\nSolution value\t Mean\t Variance\n");
     int i;
     for(i=0;i<nRow;++i){
