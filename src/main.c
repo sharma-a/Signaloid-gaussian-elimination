@@ -24,6 +24,7 @@ int main(int argc, char* argv[]){
     printSoln(solnGJ,nRow);
 
     freeMatrix(A);
+    freeMatrix(Acopy);
     free(soln);
 
 }
