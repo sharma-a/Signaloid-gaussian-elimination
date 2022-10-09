@@ -30,6 +30,19 @@ void initialiseMatrix(Matrix* m, int nRow, int nCol){
 }
 
 
+Matrix* createCopyMatrix(Matrix *in){
+    Matrix* ret;
+    ret=(Matrix*) malloc(sizeof(Matrix));
+    initialiseMatrix(ret, in->nRow, in->nCol);
+    for(int i=0;i<in->nRow;++i){
+        for(int j=0;j<in->nCol;++j){
+            *at(ret,i,j)=*at(in,i,j);
+        }
+    }
+    return ret;
+}
+
+
 void swapRow(Matrix* m, int i, int j){
     int tmp=m->indices[j];
     m->indices[j]=m->indices[i];

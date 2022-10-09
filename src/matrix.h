@@ -35,5 +35,9 @@ void solveTriangular(Matrix* in, double* soln);
 
 void freeMatrix(Matrix *in);
 
+Matrix* createCopyMatrix(Matrix *in);
+
+Matrix* readFromFile(char* filename);
+
 
 #endif

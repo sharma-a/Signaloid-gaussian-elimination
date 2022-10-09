@@ -4,6 +4,7 @@
 SOURCES = \
     matrix.c\
     gauss.c\
+	readFile.c\
 	main.c
 
 
