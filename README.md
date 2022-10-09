@@ -8,7 +8,7 @@ This program solves a system of linear equations $Ax=b$ where the matrix $A$ and
 ## Using the program
 The input to the program is provided as a file that contains the entries of the $A$ matrix and the $b$ vector. 
 The first line of the input file is an integer $n$ that tells the dimensionality of the problem (i.e. the number of unknowns, which is the same as the number of equations).
-The next $n^2$ entries tell the distribution of the entries of $A$ in a row major sequence, i.e, row 2 is $A_{1,1}$ 
+The next $n^2$ entries tell the distribution of the entries of $A$ in a row major sequence, i.e, row 2 is $A_{1,1}$, row 3 is $A_{1,2}$, .... row $n+1$ is $A_{1,n}$, row $n+2$ is $A_{2,1}$  .. and so on.
 
 The distribution information for an entry is specified by a string which tells the type of distribution, followed by parameters for that distribution. The distribution types are and their paramaters are:
 1. "custom": followed by a sequence of numbers $a_1,a_2,a_3,...a_k$. This denotes a distribution which takes the values $a_1,a_2,a_3,...a_k$ with equal probabilities (=$1/k$). If we have a single number after "custom", then that entry is non-random equal to that number.
