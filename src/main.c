@@ -35,9 +35,9 @@ int main(){
             //getline(&line, &len, fptr);
             fgets(line, 300, fptr);
             nSamp=strToDoubleArray(line, samples);
-             for(int k=0;k<nSamp;++k)
-                printf("%lf\t",samples[k]);
-            printf("\n");
+//             for(int k=0;k<nSamp;++k)
+//                printf("%lf\t",samples[k]);
+ //           printf("\n");
             *at(&A,i,j)=libUncertainDoubleDistFromSamples(samples,nSamp);
         }
     }
