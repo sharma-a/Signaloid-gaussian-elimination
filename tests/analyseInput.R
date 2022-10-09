@@ -1,11 +1,11 @@
-xx=scan("Mixinput",what="",sep="\n")
+xx=scan("analyseInput",what="",sep="\n")
 nRow=as.numeric(xx[1])
 nCol=nRow+1
 xx=xx[-1]
 xx=strsplit(xx,",")
 
 A=matrix(NA,nRow,nCol)
-nIter=2000
+nIter=5000
 soln=matrix(NA,nIter,nRow)
 for(ii in 1:nIter){
     nn=0
@@ -28,3 +28,8 @@ for(ii in 1:nIter){
 }
 print(apply(soln,2,mean))
 print(apply(soln,2,var))
+
+par(mfrow=c(1,3))
+hist(soln[,1],25)
+hist(soln[,2],25)
+hist(soln[,3],25)
