@@ -29,7 +29,8 @@ The program finds the solution using Gaussian Elimination in two ways. The first
 Now, in an ideal world, both processes (triangulisation and diagonisation) will find exactly the same solutions eventually. But because computers are finite precision machines they may produce different answers. Usual numerical considerations by themselves suggest that sometimes one method be favoured over the other, even when no randomness is involved. But when we are keeping track of uncertainty as well, the choice of appropriate method becomes even more important. 
 
 In my experiment with the Signaloid system I found out that the order of computation affects the propagation of uncertainty information very heavily, and it is not clear what is the correct order in which the computations should be performed to correctly track the uncertainties.
-In particular, I did the following,
+
+In particular, I did the following: I created two random variables $a$ and $b$ and calculated $\frac{a^2}{a+b}$ in three different ways. 
 
 
 
