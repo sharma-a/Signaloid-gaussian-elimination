@@ -7,13 +7,16 @@ typedef struct Matrix_{
     int nRow;
     int nCol;
     double* mat;
-    int* indices;
+    int* indices; //stores the order in which the rows are arranged
 
 } Matrix;
 
-double* at(Matrix* m, int i, int j);
+double* at(Matrix* m, int i, int j); 
+//gives the pointer to the (0 indexed) ith row, jth column of matrix m
+//all reading from and writing to matrices is done using these pointers
 
-void initialiseMatrix(Matrix* m, int nRow, int nCol);
+void initialiseMatrix(Matrix* m, int nRow, int nCol); 
+//like a constructor for the Matrix struct. allocates memory, initialises indices.
 
 void printMatrix(Matrix *m);
 
@@ -31,14 +34,12 @@ double* solveEqn(Matrix *in);
 
 double* solveEqnGaussJordan(Matrix *in);
 
-//void solveEqnGaussJordan(Matrix *in, double* soln);
-
 void freeMatrix(Matrix *in);
 
 Matrix* createCopyMatrix(Matrix *in);
+//creates a new Matrix struct and copies contents of in into it. returns pointer to the new object.
 
 Matrix* readFromFile(char* filename);
-
 
 void printSoln(double* soln, int nRow);
 #endif

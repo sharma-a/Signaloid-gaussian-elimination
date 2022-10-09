@@ -6,6 +6,7 @@ void gaussTriangulise(Matrix *in){
     int nCol=in->nCol;
     int j, out, row, col;
     for(out=0;out<nRow-1;++out){
+        //find the maximum element in the column for pivoting
         int maxIndex=out;
         double *maxPtr=at(in,maxIndex,out);
         for(j=out+1;j<nRow;++j){
@@ -52,7 +53,6 @@ void gaussJordan(Matrix *in){
     int j, outerLoop, row, col;
 
     for(outerLoop=0;outerLoop<nRow;++outerLoop){
-        //find the maximum abs value in in[,outerLoop] 
         int maxIndex=outerLoop;
         double *maxPtr=at(in,outerLoop,outerLoop);
         for(j=outerLoop+1;j<nRow;++j){
