@@ -30,7 +30,8 @@ Now, in an ideal world, both processes (triangulisation and diagonisation) will 
 
 In my experiment with the Signaloid system I found out that the order of computation affects the propagation of uncertainty information very heavily, and it is not clear what is the correct order in which the computations should be performed to correctly track the uncertainties.
 
-In particular, I did the following: I created two random variables $a$ and $b$ and calculated $\frac{a^2}{a+b}$ in three different ways. 
+In particular, I did the following: I created two random variables $a$ and $b$ and calculated $\frac{a^2}{a+b}$ in three different ways.
 
+The values produced by the three methods were the same (as they should be) but their distributions were very different. The expected values (libUncertainDoubleNthMoment(x,1)) were noticably different and their variances (libUncertainDoubleNthMoment(x,2)) were wildly different. I did a simulation in R to find the correct variances and expected values for this quantity and only one of the methods matched the values obtained in the simulation. Further it was not clear why the correct method produced the correct runcertainty tracking and thus how should computations 
 
 
