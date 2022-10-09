@@ -28,7 +28,6 @@ Matrix* readFromFile(char* filename){
     double samples[30];
     int nSamp;
     char type[20];
-    printf("nRow is %d\n",nRow);
     Matrix* ret;
     ret=(Matrix*) malloc(sizeof(Matrix));
     initialiseMatrix(ret,nRow,nCol);
