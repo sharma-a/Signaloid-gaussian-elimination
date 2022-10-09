@@ -20,7 +20,7 @@ int strToDoubleArray(char* str, double* ret){
 int main(){
 
     FILE* fptr;
-    fptr=fopen("Abinp","r");
+    fptr=fopen("/Abinp","r");
     int nRow, nCol;
     fscanf(fptr,"%d\n",&nRow);
     nCol=nRow+1;
