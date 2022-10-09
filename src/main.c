@@ -40,13 +40,13 @@ Matrix* readFromFile(char* filename){
             fgets(line, 300, fptr);
             nSamp=readLineFromFile(line, type, samples);
             if(strcmp(type,"gauss")==0){
-                *at(ret,i,j=libUncertainDoubleGaussDist(samples[0],samples[1]);
+                *at(ret,i,j)=libUncertainDoubleGaussDist(samples[0],samples[1]);
             }
             else if(strcmp(type,"unif")==0){
-                *at(ret,i,j=libUncertainDoubleUniformDist(samples[0],samples[1]);
+                *at(ret,i,j)=libUncertainDoubleUniformDist(samples[0],samples[1]);
             }
             else if(strcmp(type,"exp")==0){
-                *at(ret,i,j=libUncertainDoubleExponentialDist(samples[0]);
+                *at(ret,i,j)=libUncertainDoubleExponentialDist(samples[0]);
             }
             else if(strcmp(type,"custom")==0){
                 if(nSamp==1) *at(ret,i,j)=samples[0];
