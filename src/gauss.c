@@ -1,4 +1,5 @@
 #include "matrix.h"
+#include <stdlib.h>
 
 void gaussTriangulise(Matrix *in){
     int nRow=in->nRow;
@@ -30,7 +31,7 @@ double* solveEqn(Matrix *in){
     int nRow=in->nRow;
     int nCol=in->nCol;
     int i,j;
-    if(nCol!=nRow+1) return;
+    if(nCol!=nRow+1) return NULL;
     double* soln=(double*) malloc(nRow*sizeof(double));
     gaussTriangulise(in);
     for(i=nRow-1;i>=0;--i){
