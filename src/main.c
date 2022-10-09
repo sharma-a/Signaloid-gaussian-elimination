@@ -13,7 +13,7 @@ int main(int argc, char* argv[]){
     int nRow=A->nRow;
     printMatrix(A);
 
-    printf("Gauss Jordan\n");   
+    printf("Gauss Triangulization\n");   
     double* soln=solveEqn(A);
     printSoln(soln,nRow);
 
