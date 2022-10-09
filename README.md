@@ -28,9 +28,7 @@ The program finds the solution using Gaussian Elimination in two ways. The first
 ### Some issues to be careful about in the implementation
 1. Uncertainty tracking is computationally demanding. Unless the signaloid compiler is doing something smart, creating a varaible to store something temporarily will cause the tracking of that temporary varaible, which will eat up precious resources. So I tried to avoid creating temporaries, and tried to make use of the C scoping rules to ensure that they are destroyed when not needed. Also I tended to avoid copying variables to new ones. Instead I relied on pointers to access values which were already stored elsewhere.
 2. Gaussian elimination involves creation of zeroes by subtracting various things. Now, it is good not only from the point of view of efficiency that such zero quantities are not computed but are explicitly zeroed out (and terms involving these zeros should be simply omitted while calculating other quantities), but it is essential also from the point of view of not introducing spurious randomness. Signaloid variables are random variables, and even if they are zero they may have a non-trivial distribution whose mean is zero, which can introduce spurious randomness down the calculation chain. My implementation makes sure that these zeros are handled properly.   
-3. Order of computation is os paramount importance (Next Section).
-
-
+3. Order of computation is of paramount importance (Next Section).
 
 
 
@@ -51,3 +49,13 @@ This was the case with a very simple computation. Our problem involves computati
 In my program, depending upon the input matrices, the distributions obtained were different in the two methods. In general, the more the number and the variances of the random quantities, the more the variability in the methods. Variances in general varied much more wildly compared to the expected values.
 
 
+## The code
+I created my own data structure called `Matrix` to represent matrices. 
+
+1. The files `matrix.h` contains the declartaions and `matrix.c` contains definitions of basic functions on this data structure. 
+2. `gauss.c` has the Gaussian Elimination calculations
+3. readFile.c has some input/output
+4. main.c is the main driver program
+
+## Some Results
+matrix.c 
