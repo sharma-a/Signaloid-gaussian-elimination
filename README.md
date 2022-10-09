@@ -2,10 +2,23 @@
 [<img src="https://assets.signaloid.io/add-to-signaloid-cloud-logo-light-v6.png#gh-light-mode-only" alt="[Add to signaloid.io]" height="30">](https://signaloid.io/repositories?connect=https://github.com/sharma-a/Signaloid-gaussian-elimination#gh-light-mode-only)
 
 # Solution of systems of linear equations with random coefficients and random right hand side
-This program solves a system of linear equations $Ax=b$ where the matrix $A$ and the vector $b$ have random entries. The program handles the case where $A$ is a non-singular square matrix. The solution to such a system is a random vector whose distribution is difficult to find analytically. This program uses the Uncertainty tracking feature of the Signaloid system to find these distributions. 
+This program solves a system of linear equations $Ax=b$ where the matrix $A$ and the vector $b$ have random entries. The program handles the case where $A$ is a non-singular square matrix. The solution to such a system is a random vector whose distribution is difficult to find analytically. This program uses the method of Gaussian Elimination along with the uncertainty tracking feature of the Signaloid system to find these distributions. 
 
-The challenges involved in solving this problem can be readily seen by looking at small $n$ cases.
-For $n=1$, we have an equation $$
+
+## Using the program
+The input to the program is provided as a file that contains the entries of the $A$ matrix and the $b$ vector. 
+The first line of the input file is an integer $n$ that tells the dimensionality of the problem (i.e. the number of unknowns, which is the same as the number of equations).
+The next $n^2$ entries tell the distribution of the entries of $A$ in a row major sequence, i.e, row 2 is $A_{1,1}$ 
+
+The distribution information for an entry is specified by a string which tells the type of distribution, followed by parameters for that distribution. The distribution types are and their paramaters are:
+1. "custom": followed by a sequence of numbers $a_1,a_2,a_3,...a_k$. This denotes a distribution which takes the values $a_1,a_2,a_3,...a_k$ with equal probabilities (=$1/k$). If we have a single number after "custom", then that entry is non-random equal to that number.
+2. "gauss": followed by two numbers. This is normal distribution where the first number is its mean, and the second is its standard deviation. 
+2. "unif": followed by two numbers. This is uniform distribution between the first number which is its minimum value, and the second number which is its maximum value.
+2. "gauss": followed by two numbers. This is normal distribution where the first number is its mean, and the second is its standard deviation. 
+
+
+
+
 
 ## Getting Started
 1. [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) this repository.
