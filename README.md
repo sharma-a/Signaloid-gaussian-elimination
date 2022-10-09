@@ -26,12 +26,17 @@ The program finds the solution using Gaussian Elimination in two ways. The first
 
 ## The finite precision issue: some disconcerting facts and why we solve it in two ways (and why should we explore even more ways)
 
-Now, in an ideal world, both processes (triangulisation and diagonisation) will find exactly the same solutions eventually. But because computers are finite precision machines they may produce different answers. Usual numerical considerations by themselves suggest that sometimes one method be favoured over the other, even when no randomness is involved. But when we are keeping track of uncertainty as well, the choice of appropriate method becomes even more important. 
+Now, in an ideal world, both processes (triangulisation and diagonisation) will find exactly the same solutions eventually. But because computers are finite precision machines they may produce different answers. Usual numerical considerations by themselves suggest that sometimes one method should be favoured over the other, even when no randomness is involved. But when we are keeping track of uncertainty as well, the choice of appropriate method becomes even more important. 
 
 In my experiment with the Signaloid system I found out that the order of computation affects the propagation of uncertainty information very heavily, and it is not clear what is the correct order in which the computations should be performed to correctly track the uncertainties.
 
-In particular, I did the following: I created two random variables $a$ and $b$ and calculated $\frac{a^2}{a+b}$ in three different ways.
+In particular, I did the following: I created two random variables $a$ and $b$ and calculated $\frac{a^2}{a+b}$ in three different ways: 
+`c=(a/(b+a))*a`, `d=(a*a)/(a+b)`  and `e=a/(1.0+b/a)`
 
-The values produced by the three methods were the same (as they should be) but their distributions were very different. The expected values (libUncertainDoubleNthMoment(x,1)) were noticably different and their variances (libUncertainDoubleNthMoment(x,2)) were wildly different. I did a simulation in R to find the correct variances and expected values for this quantity and only one of the methods matched the values obtained in the simulation. Further it was not clear why the correct method produced the correct runcertainty tracking and thus how should computations 
+The values produced by the three methods were the same (as they should be) but their distributions were very different. The expected values (libUncertainDoubleNthMoment(x,1)) were noticably different and their variances (libUncertainDoubleNthMoment(x,2)) were wildly different. I did a simulation in R to find the correct variances and expected values for this quantity and only one of the methods (the `c` calculated above)  matched the values obtained in the simulation. Further it was not clear to me why the correct method produced the correct uncertainty tracking. If this issue has not been investigated, it must be done so now.
+
+This was the case with a very simple computation. Our problem involves computations much more complex than this, and hence figuring out what factors contribute to correct uncertainty tracking is very important in this case. 
+
+In my program, depending upon the input matrices, the distributions obtained were different in the two methods. In general, the more the number and the variances of the random quantities, the more the variability in the methods. Variances in general varied much more wildly compared to the expected values.
 
 
