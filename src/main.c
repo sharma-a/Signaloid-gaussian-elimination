@@ -11,8 +11,8 @@ int main(){
     int nRow=A->nRow;
     printMatrix(A);
     double* soln=solveEqn(A);
-    for(int i=0;i<nRow;++i)
-        printf("%lf\n",soln[i]);
+    printSoln(soln,nRow);
+
     freeMatrix(A);
     free(soln);
 
