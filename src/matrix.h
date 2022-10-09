@@ -40,4 +40,5 @@ Matrix* createCopyMatrix(Matrix *in);
 Matrix* readFromFile(char* filename);
 
 
+void printSoln(double* soln);
 #endif
