@@ -8,7 +8,7 @@
 int main(int argc, char* argv[]){
     char* filename=argv[1];
     Matrix *A=readFromFile(filename);
-    Matrix *Acopy=copyMatrix(A);
+    Matrix *Acopy=createCopyMatrix(A);
 
     int nRow=A->nRow;
     printMatrix(A);
