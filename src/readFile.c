@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <uncertain.h>
-#include "Matrix.h"
+#include "matrix.h"
 
 int readLineFromFile(char* str, char* type, double* ret){
     char *token;
