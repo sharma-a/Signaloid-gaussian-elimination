@@ -1,13 +1,13 @@
 3
-custom,7.4
-custom,-32.1,-31.5,-30.3
-custom,9.0
-custom,6.2,6.8
-gauss,18.7,0.2
+custom,17.4,20.2
+custom,-22.1,-25.5,-30.3
 custom,23.4
-unif,56.5,58.7
-custom,36.8,37.2,38.3
-custom,16.7
-custom,6.1,7.1,5.9
-gauss,27.9,1.5
-unif,42.8,44.4
+custom,6.1
+gauss,27.9,5.5
+unif,50.2,55.3
+custom,-5.3
+unif,-17.9,-10
+custom,-29.9,-33.2, -38.9
+custom,-7.3
+unif,12.5,19.3
+custom, 3.4

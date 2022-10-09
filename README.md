@@ -1,8 +1,11 @@
 [<img src="https://assets.signaloid.io/add-to-signaloid-cloud-logo-dark-v6.png#gh-dark-mode-only" alt="[Add to signaloid.io]" height="30">](https://signaloid.io/repositories?connect=https://github.com/sharma-a/Signaloid-gaussian-elimination#gh-dark-mode-only)
 [<img src="https://assets.signaloid.io/add-to-signaloid-cloud-logo-light-v6.png#gh-light-mode-only" alt="[Add to signaloid.io]" height="30">](https://signaloid.io/repositories?connect=https://github.com/sharma-a/Signaloid-gaussian-elimination#gh-light-mode-only)
 
-# C Project Template for the Signaloid Cloud Developer Platform
-This is a minimal example to get you started with setting up C repositories in GitHub that you can then run on the Signaloid Cloud Developer Platform. The repository contains a C source file in the `src` folder which gets compiled and executed by the Signaloid Cloud Developer Platform.
+# Solution of systems of linear equations with random coefficients and random right hand side
+This program solves a system of linear equations $Ax=b$ where the matrix $A$ and the vector $b$ have random entries. The program handles the case where $A$ is a non-singular square matrix. The solution to such a system is a random vector whose distribution is difficult to find analytically. This program uses the Uncertainty tracking feature of the Signaloid system to find these distributions. 
+
+The challenges involved in solving this problem can be readily seen by looking at small $n$ cases.
+For $n=1$, we have an equation $$
 
 ## Getting Started
 1. [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) this repository.
