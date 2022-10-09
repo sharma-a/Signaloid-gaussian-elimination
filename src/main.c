@@ -30,7 +30,6 @@ int main(){
 
     Matrix A;
     initialiseMatrix(&A, nRow, nCol);
-    printf("here\n");
     for(int i=0;i<nRow;++i){
         for(int j=0;j<nCol;++j){
             //getline(&line, &len, fptr);
@@ -39,7 +38,7 @@ int main(){
              for(int k=0;k<nSamp;++k)
                 printf("%lf\t",samples[k]);
             printf("\n");
- //           *at(&A,i,j)=libUncertainDoubleDistFromSamples(samples,nSamp);
+            *at(&A,i,j)=libUncertainDoubleDistFromSamples(samples,nSamp);
         }
     }
 
