@@ -60,7 +60,7 @@ Matrix* readFromFile(char* filename){
 
 
 void printSoln(double* soln, int nRow){
-    printf("\nValue\t\tMean\t\tVariance\n");
+    printf("Value\t\tMean\t\tVariance\n");
     int i;
     for(i=0;i<nRow;++i){
        printf("%.4lf\t\t%.4lf\t\t%.4lf\n",soln[i],libUncertainDoubleNthMoment(soln[i],1), libUncertainDoubleNthMoment(soln[i],2));
