@@ -27,7 +27,7 @@ void gaussTriangulise(Matrix *in);
 
 void gaussJordan(Matrix *in);
 
-void solveEqn(Matrix *in, double* soln);
+double* solveEqn(Matrix *in);
 
 void solveEqnGaussJordan(Matrix *in, double* soln);
 
