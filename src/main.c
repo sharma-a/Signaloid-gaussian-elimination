@@ -11,18 +11,15 @@ int main(int argc, char* argv[]){
     Matrix *Acopy=createCopyMatrix(A);
 
     int nRow=A->nRow;
-    printMatrix(A);
 
     printf("Gauss Triangulization\n");   
     double* soln=solveEqn(A);
-    //printMatrix(A);
     printSoln(soln,nRow);
 
 
 
     printf("Gauss Jordan\n");   
     double* solnGJ=solveEqnGaussJordan(Acopy);
-    //printMatrix(Acopy);
     printSoln(solnGJ,nRow);
 
     freeMatrix(A);
