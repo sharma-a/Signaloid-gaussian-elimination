@@ -58,3 +58,4 @@ I created my own data structure called `Matrix` to represent matrices.
 4. main.c is the main driver program
 
 ## Some Results
+The results obtained on an example (input_3Vars) are shown in the pdf file (results_3Vars.pdf)
