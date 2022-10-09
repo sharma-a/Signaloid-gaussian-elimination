@@ -5,7 +5,7 @@ xx=xx[-1]
 xx=strsplit(xx,",")
 
 A=matrix(NA,nRow,nCol)
-nIter=5000
+nIter=50000
 soln=matrix(NA,nIter,nRow)
 for(ii in 1:nIter){
     nn=0

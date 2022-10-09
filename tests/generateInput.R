@@ -1,9 +1,9 @@
-nRow=8
+nRow=6
 
 N=nRow*(nRow+1)
 mus=runif(N,-100,100)
 sigmas=sqrt(abs(mus))/50
-ff=file("Mixinput_new",open="w")
+ff=file("input_new",open="w")
 cat(nRow,"\n",file=ff,sep="")
 for(i in 1:length(mus)){
    kk=sample(1:4,1)
