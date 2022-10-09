@@ -19,8 +19,7 @@ int strToDoubleArray(char* str, double* ret){
 
 int main(){
     FILE *fptr;
-    if(!(fptr=fopen("mnt/Abinp2","w"))) {printf ("\nFile Error.\n"); return -1;}
-    fclose(fptr);
+    if(!(fptr=fopen("mnt/Abinp","r"))) {printf ("\nFile Error.\n"); return -1;}
     return -1;
     int nRow, nCol;
     fscanf(fptr,"%d\n",&nRow);
