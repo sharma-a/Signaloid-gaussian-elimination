@@ -22,6 +22,12 @@ The input file name is provided as an argument to the program. Upon running it o
 ## The solution process
 The program finds the solution using Gaussian Elimination in two ways. The first way triangulises the matrix,(converting it to an upper triangular form using row operations) changing the rhs appropriately along the way and does back substitution to find the solution. The second way diagonalises the matrix (this process is often called Gauss-Jordan elimination) and computes the solution by simple division. Pivoting is used in both the methods to increase the numerical stability of the algorithm. This is the process of permuting the unused rows of the matrix (i.e. changing the order of the unused equations) in such a way as to avoid dividing by very small numbers. 
 
+### Some issues to be careful about in the implementation
+1. Uncertainty tracking is computationally demanding. Unless the signaloid compiler is doing something smart, creating a varaible to store something temporarily will cause the tracking of that temporary varaible, which will eat up precious resources. So I tried to avoid creating temporaries, and tried to make use of the C scoping rules to ensure that they are destroyed when not needed. Also I tended to avoid copying variables to new ones. InsteadI relied on pointers to access values which were already stored elsewhere.
+2.Gaussian elimination involves creation of zeroes by subtracting various things. Now, it is good not only from the point of view of efficiency that such zero quantities are not computed but explicitly zeroed out (and terms involving these zeros should be simply omitted while calculating other quantities), but it is essential also from the point of view of not introducing spurious randomness. Signaloid variables are random variables, and even if they are zero they may have a non-trivial distribution whose mean is zero, which can introduce spurious randomness down the calculation chain.    
+3.Order of computation(Next Section)
+
+
 
 
 ## The finite precision issue: some disconcerting facts and why we solve it in two ways (and why should we explore even more ways)
