@@ -29,9 +29,9 @@ void gaussJordan(Matrix *in);
 
 double* solveEqn(Matrix *in);
 
-void solveEqnGaussJordan(Matrix *in, double* soln);
+double* solveEqnGaussJordan(Matrix *in);
 
-void solveTriangular(Matrix* in, double* soln);
+//void solveEqnGaussJordan(Matrix *in, double* soln);
 
 void freeMatrix(Matrix *in);
 

@@ -72,11 +72,13 @@ void gaussJordan(Matrix *in){
     }
 }
 
-void solveEqnGaussJordan(Matrix *in, double* soln){
+double* solveEqnGaussJordan(Matrix *in){
     int nRow=in->nRow;
     int nCol=in->nCol;
+    double* soln=(double*) malloc(nRow*sizeof(double));
     gaussJordan(in);
     for(int i=0;i<nRow;++i){
        soln[i]=*at(in,i,nCol-1)/(*at(in,i,i));
    }
+   return soln;
 } 
