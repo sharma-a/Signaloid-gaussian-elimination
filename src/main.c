@@ -31,6 +31,7 @@ int main(){
 
     Matrix A;
     initialiseMatrix(&A, nRow, nCol);
+    printf("here\n");
     for(int i=0;i<nRow;++i){
         for(int j=0;j<nCol;++j){
             //getline(&line, &len, fptr);
