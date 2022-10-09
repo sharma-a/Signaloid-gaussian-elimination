@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <uncertain.h>
 
 int strToDoubleArray(char* str, double* ret){
     char *token;
@@ -42,7 +43,7 @@ int main(){
     fclose(fptr);
 
 
-   double* soln=(double*) malloc(N*sizeof(double));
+   double* soln=(double*) malloc(nRow*sizeof(double));
 
    printMatrix(&A);
 
