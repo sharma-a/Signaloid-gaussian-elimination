@@ -24,7 +24,7 @@ int main(){
     int nRow, nCol;
     fscanf(fptr,"%d\n",&nRow);
     nCol=nRow+1;
-    char *line=NULL;
+    char line[300];
     double samples[30];
 
     int nSamp;
@@ -34,7 +34,8 @@ int main(){
     initialiseMatrix(&A, nRow, nCol);
     for(int i=0;i<nRow;++i){
         for(int j=0;j<nCol;++j){
-            getline(&line, &len, fptr);
+            //getline(&line, &len, fptr);
+            fgets(line, 300, fptr);
             nSamp=strToDoubleArray(line, samples);
             *at(&A,i,j)=libUncertainDoubleDistFromSamples(samples,nSamp);
         }
