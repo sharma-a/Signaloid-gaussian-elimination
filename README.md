@@ -24,8 +24,8 @@ The program finds the solution using Gaussian Elimination in two ways. The first
 
 ### Some issues to be careful about in the implementation
 1. Uncertainty tracking is computationally demanding. Unless the signaloid compiler is doing something smart, creating a varaible to store something temporarily will cause the tracking of that temporary varaible, which will eat up precious resources. So I tried to avoid creating temporaries, and tried to make use of the C scoping rules to ensure that they are destroyed when not needed. Also I tended to avoid copying variables to new ones. InsteadI relied on pointers to access values which were already stored elsewhere.
-2.Gaussian elimination involves creation of zeroes by subtracting various things. Now, it is good not only from the point of view of efficiency that such zero quantities are not computed but explicitly zeroed out (and terms involving these zeros should be simply omitted while calculating other quantities), but it is essential also from the point of view of not introducing spurious randomness. Signaloid variables are random variables, and even if they are zero they may have a non-trivial distribution whose mean is zero, which can introduce spurious randomness down the calculation chain.    
-3.Order of computation(Next Section)
+2. Gaussian elimination involves creation of zeroes by subtracting various things. Now, it is good not only from the point of view of efficiency that such zero quantities are not computed but explicitly zeroed out (and terms involving these zeros should be simply omitted while calculating other quantities), but it is essential also from the point of view of not introducing spurious randomness. Signaloid variables are random variables, and even if they are zero they may have a non-trivial distribution whose mean is zero, which can introduce spurious randomness down the calculation chain.    
+3. Order of computation(Next Section).
 
 
 
