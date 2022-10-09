@@ -26,11 +26,12 @@ void gaussTriangulise(Matrix *in){
 }
 
 
-void solveEqn(Matrix *in, double* soln){
+double* solveEqn(Matrix *in){
     int nRow=in->nRow;
     int nCol=in->nCol;
     int i,j;
     if(nCol!=nRow+1) return;
+    double* soln=(double*) malloc(nRow*sizeof(double));
     gaussTriangulise(in);
     for(i=nRow-1;i>=0;--i){
         soln[i]=*at(in,i,nRow);
@@ -40,6 +41,7 @@ void solveEqn(Matrix *in, double* soln){
         }
         soln[i]/=*at(in,i,i);
     }
+    return soln;
 }
 
 

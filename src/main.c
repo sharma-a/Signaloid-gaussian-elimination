@@ -10,8 +10,7 @@ int main(){
     Matrix *A=readFromFile(filename);
     int nRow=A->nRow;
     printMatrix(A);
-    double* soln=(double*) malloc(nRow*sizeof(double));
-    solveEqn(A,soln);
+    double* soln=solveEqn(A,soln);
     for(int i=0;i<nRow;++i)
         printf("%lf\n",soln[i]);
     freeMatrix(A);
