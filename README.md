@@ -2,7 +2,7 @@
 [<img src="https://assets.signaloid.io/add-to-signaloid-cloud-logo-light-v6.png#gh-light-mode-only" alt="[Add to signaloid.io]" height="30">](https://signaloid.io/repositories?connect=https://github.com/sharma-a/Signaloid-gaussian-elimination#gh-light-mode-only)
 
 # Solution of systems of linear equations with random coefficients and random right hand side
-This program solves a system of linear equations $Ax=b$ where the matrix $A$ and the vector $b$ have random entries. The program handles the case where $A$ is a **non-singular square** matrix. The solution to such a system is a random vector whose distribution is difficult to find analytically. (The solution values themselves can be analytically specified by the Cramers formula which involves taking ratios of determinants of various matrices built from $A$ and $b$. But finding the analytical distribution of determinants of random matrices is intractable except for some special cases.)
+This program solves a system of linear equations $Ax=b$ where the matrix $A$ and the vector $b$ have random entries. The program handles the case where $A$ is a **non-singular square** matrix. The solution to such a system is a random vector whose distribution is difficult to find analytically. (The solution values themselves can be analytically specified by the Cramer's formula which involves taking ratios of determinants of various matrices built from $A$ and $b$. But finding the analytical distribution of determinants of random matrices is intractable except for some special cases.)
 
 This program uses the method of Gaussian Elimination along with the uncertainty tracking feature of the Signaloid system to find the distributions of the solutions to the system. 
 
@@ -14,7 +14,7 @@ The first line of the input file is an integer $n$ that tells the dimensionality
 The next $n^2$ lines tell the distribution of the entries of $A$ in a row major sequence, i.e, line 2 is $A_{1,1}$, line 3 is $A_{1,2}$, .... line $n+1$ is $A_{1,n}$, line $n+2$ is $A_{2,1}$  .. and so on.
 The next $n$ lines tell the distribution of $b_1,b_2,...b_n$ 
 
-The distribution information for an entry is specified by a string, which tells the type of distribution, followed by parameters for that distribution. The distribution types are and their paramaters are:
+The distribution information for an entry is specified by a string, which tells the type of distribution, followed by parameters for that distribution. The distribution types are and their paramaters that the program currently supports are:
 1. **"custom"**: followed by a sequence of numbers $a_1,a_2,a_3,...a_k$. This denotes a distribution which takes the values $a_1,a_2,a_3,...a_k$ with equal probabilities. If we have a single number after "custom", then that entry is non-random and equal to that number.
 2. **"gauss"**: followed by two numbers. This is normal distribution where the first number is its mean, and the second is its standard deviation. 
 3. **"unif"**: followed by two numbers. This is uniform distribution between the first number (its minimum value), and the second number (maximum value).
