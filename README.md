@@ -22,6 +22,8 @@ The distribution information for an entry is specified by a string, which tells 
 
 The input file name is provided as an argument to the program. Upon running it on the Signaloid Cloud Developer Platform, the program calculates the solution to the system in two different ways (see the next section for details, and the subsequent one for a discussion on why we do it in two ways) and outputs them on the standard output. For each $x_i$, it prints the solution value, its expected value and its variance. On hovering at a solution valuea, the Signaloid system shows a pictorial representation (histogram) of its distribution.
 
+The distributions we seek are joint distributions with complex dependencies between the individual random variables (because all thesolutions are ultimately calculated in different ways from the same set of entries of $A$ and $b$). Hence the **calculations must be done on an auto-correlation tracking platform**.  
+
 ## The solution process
 The program finds the solution using Gaussian Elimination in two ways. The first way triangulises the matrix, converting it to an upper triangular form using row operations, and changing the rhs appropriately along the way, and then does back substitution to find the solution. The second way diagonalises the matrix (this process is often called Gauss-Jordan elimination) and computes the solution by simple division. Pivoting is used in both the methods to increase the numerical stability of the algorithm. This is the process of permuting the unused rows of the matrix (i.e. changing the order of the unused equations) in such a way as to avoid dividing by very small numbers. If the maximum absolute value of the divisor number becomes zero (for a finite precision machine we check whether it has become less than a predetermined small constant) then that indicates that matrix $A$ is singular. The program does not handle these cases and quits if such a situation occurs. 
 
@@ -59,4 +61,6 @@ I created my own data structure called `Matrix` to represent matrices.
 4. main.c is the main driver program
 
 ## An example
-The results obtained on an example [input3Vars](input3Vars) are shown in the pdf file [result_3Vars.pdf](result_3Vars.pdf)
+The results obtained on an example [input3Vars](input3Vars) are shown in the pdf file [result_3Vars.pdf](result_3Vars.pdf). This was run on the C0-S+ core provided by the system. The results were not much improved on using higher representation precision of C0-M+ or C0-L+.
+
+To calculate the "true" distributions R simulation was used. I tried using the C0-Reference core provided by the system, but it was much slower and did not behave as expected.
