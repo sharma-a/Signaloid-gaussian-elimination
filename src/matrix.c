@@ -2,6 +2,14 @@
 #include <stdlib.h>
 #include "matrix.h"
 
+/*
+Function implementations of the operations on my custom matrix data structure.
+The names of functions are self-explanatory. The header "matrix.h" has some more comments.
+The Matrix is always passed through a pointer to these functions
+*/
+
+
+
 double* at(Matrix* m, int i, int j){
     return m->mat+m->nCol*(m->indices[i])+j;
 }
