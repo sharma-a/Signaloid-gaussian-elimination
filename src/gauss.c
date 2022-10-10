@@ -1,3 +1,13 @@
+/*
+Implementation of the Gauss Elimination and the Gauss Jordan Elimination
+And the equation solution
+NOTE: the in matrix to these functions is the augmented matrix
+i.e. if Ax=b is being solved, then the input should be the matrix [A|b]
+i.e. matrix A along with b appended as the last column to it
+So if A is n by n then the input should be n by (n+1)
+*/
+
+
 #include "matrix.h"
 #include <stdlib.h>
 #include <stdio.h>
