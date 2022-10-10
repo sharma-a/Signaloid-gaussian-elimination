@@ -57,10 +57,11 @@ I created my own data structure called `Matrix` to represent matrices.
 
 1. The files `matrix.h` contains the declartaions and `matrix.c` contains definitions of basic functions on this data structure. 
 2. `gauss.c` has the Gaussian Elimination calculations
-3. readFile.c has some input/output
-4. main.c is the main driver program
+3. `readFile.c` has some input/output
+4. `main.c` is the main driver program
+5. In the `tests` folder I have also provide some R scripts that can generate random valid input files for the program, and perform simulations on them.
 
 ## An example
 The results obtained on an example [input3Vars](input3Vars) are shown in the pdf file [result_3Vars.pdf](result_3Vars.pdf). This was run on the C0-S+ core provided by the system. The results were not much improved on using higher representation precision of C0-M+ or C0-L+.
 
-To calculate the "true" distributions R simulation was used. I tried using the C0-Reference core provided by the system, but it was much slower and did not behave as expected.
+To calculate the "true" distributions R simulation was used. I tried using the C0-Reference core provided by the system (which the documentation says performs Monte Carlo simulations), but it was much slower and did not behave as expected.
