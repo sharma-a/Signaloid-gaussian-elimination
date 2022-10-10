@@ -1,3 +1,6 @@
+#Performs a simulation on the system specified in a valid input to the program
+#The input file should be named "analyseInput"
+
 xx=scan("analyseInput",what="",sep="\n")
 nRow=as.numeric(xx[1])
 nCol=nRow+1
