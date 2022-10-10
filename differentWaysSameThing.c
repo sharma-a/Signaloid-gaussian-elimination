@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <uncertain.h>
 
-
+//The same number calculated in 3 different ways produces different three different distributions
+//This seems a major problem with the uncertainty tracking
 
 int
 main(int argc, char *  argv[])
