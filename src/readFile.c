@@ -1,3 +1,12 @@
+/*
+Reading an Ax=b problem from the custom file format.
+See README.md for details of this format.
+readFromFile takes a filename, reads the file and returns the augmented matrix [A|b]
+the augmented matrix is directly used in the solution procedures of gauss.c.
+See comments in gauss.c for more details.
+*/
+
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
