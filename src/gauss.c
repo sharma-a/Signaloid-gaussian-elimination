@@ -17,7 +17,7 @@ void gaussTriangulise(Matrix *in){
             if(__ABS__(*thisPtr)>__ABS__(*maxPtr)) {maxIndex=j;maxPtr=thisPtr;}
         }
         swapRow(in,out,maxIndex);
-        if(__ABS__(*maxptr)<__EPS__) {printf("Singular Matrix\n. Exiting.\n"); exit(0);}
+        if(__ABS__(*maxPtr)<__EPS__) {printf("Singular Matrix\n. Exiting.\n"); exit(0);}
 
         for(row=out+1;row<nRow;++row){
             double alpha=*(at(in,row,out))/(*maxPtr);
@@ -64,7 +64,7 @@ void gaussJordan(Matrix *in){
             if(__ABS__(*thisPtr)>__ABS__(*maxPtr)) {maxPtr=thisPtr; maxIndex=j;}
         }
         if(maxIndex!=outerLoop) swapRow(in,outerLoop,maxIndex);
-        if(__ABS__(*maxptr)<__EPS__) {printf("Singular Matrix\n. Exiting.\n"); exit(0);}
+        if(__ABS__(*maxPtr)<__EPS__) {printf("Singular Matrix\n. Exiting.\n"); exit(0);}
 
         for(row=0;row<nRow;row++){
             if(row==outerLoop) continue;
