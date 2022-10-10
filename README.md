@@ -47,9 +47,9 @@ The file `differentWaysSameThing.c` has the code for this.
 
 The values produced by the three methods were the same (as they should be) but their distributions were very different. The expected values (`libUncertainDoubleNthMoment(x,1)`) were noticably different and their variances (`libUncertainDoubleNthMoment(x,2)`) were wildly different. I did a simulation in R to find the correct variances and expected values for this quantity and only one of the methods (the `c` calculated above)  matched the values obtained in the simulation. Further it was not clear to me what features of the correct method enable the correct uncertainty tracking. If this issue has not been investigated by the Signaloid team, it must be done so now, so that in other problems, calculations can be ordered in such appropriate ways as to produce correct uncertainty tracking. 
 
-This disquieting discrepancy was the case with a very simple computation. Our problem involves computations much more complex than this, and hence it is not surprising that the problem is even mor severe in our case. 
+This disquieting discrepancy was the case with a very simple computation. Our problem involves computations much more complex than this, and hence it is not surprising that the problem is even more severe in our case. 
 
-In my program, depending upon the input matrices, the distributions obtained were different in the two methods. In general, the more the number of the random quantities and the higher their variances, the more was the difference observed in the methods. Variances in general varied much more wildly compared to the expected values. It needs to be investigated which computation is correct. I did some simulations via R but could not obtain a definite answer either way. 
+In my program, depending upon the input matrices, the distributions obtained were different in the two methods. In general, the more the number of the random quantities and the higher their variances, the more was the difference observed in the methods. Variances in general varied much more wildly compared to the expected values. It need to be investigated which computation is correct. I did some simulations via R but could not obtain a definite answer either way. Other methods for ordering the computation should also be tried and tested against simulations.
 
 
 ## The code
