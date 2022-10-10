@@ -1,7 +1,10 @@
 #include "matrix.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 void gaussTriangulise(Matrix *in){
+    printf("Exit Test\n");
+    exit(0);
     int nRow=in->nRow;
     int nCol=in->nCol;
     int j, out, row, col;
