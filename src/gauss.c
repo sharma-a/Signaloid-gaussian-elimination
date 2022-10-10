@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#define __EPS__ 0.000001f
+
 void gaussTriangulise(Matrix *in){
-    printf("Exit Test\n");
-    exit(0);
     int nRow=in->nRow;
     int nCol=in->nCol;
     int j, out, row, col;
@@ -17,6 +17,7 @@ void gaussTriangulise(Matrix *in){
             if(__ABS__(*thisPtr)>__ABS__(*maxPtr)) {maxIndex=j;maxPtr=thisPtr;}
         }
         swapRow(in,out,maxIndex);
+        if(__ABS__(*maxptr)<__EPS__) {printf("Singular Matrix\n. Exiting.\n"); exit(0);}
 
         for(row=out+1;row<nRow;++row){
             double alpha=*(at(in,row,out))/(*maxPtr);
@@ -63,6 +64,7 @@ void gaussJordan(Matrix *in){
             if(__ABS__(*thisPtr)>__ABS__(*maxPtr)) {maxPtr=thisPtr; maxIndex=j;}
         }
         if(maxIndex!=outerLoop) swapRow(in,outerLoop,maxIndex);
+        if(__ABS__(*maxptr)<__EPS__) {printf("Singular Matrix\n. Exiting.\n"); exit(0);}
 
         for(row=0;row<nRow;row++){
             if(row==outerLoop) continue;
