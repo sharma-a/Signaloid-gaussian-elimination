@@ -1,3 +1,5 @@
+#generates a valid input to the program with nRow rows
+#the generated file is called "input_new"
 nRow=6
 
 N=nRow*(nRow+1)
