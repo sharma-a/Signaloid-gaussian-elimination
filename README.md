@@ -20,7 +20,7 @@ The distribution information for an entry is specified by a string, which tells 
 3. **"unif"**: followed by two numbers. This is uniform distribution between the first number (its minimum value), and the second number (maximum value).
 4. **"exp"**: followed by a number. This is exponential distribution where the specified number is its mean.
 
-The input file name is provided as an argument to the program. Upon running it on the Signaloid Cloud Developer Platform, the program calculates the solution to the system in two different ways (see the next section for details, and the subsequent one for a discussion on why we do it in two ways) and outputs them on the standard output. For each $x_i$, it prints the solution value, its expected value and its variance. On hovering at a solution valuea, the Signaloid system shows a pictorial representation (histogram) of its distribution.
+The input file name is provided as an argument to the program. Upon running it on the Signaloid Cloud Developer Platform, the program calculates the solution to the system in two different ways (see the next section for details, and the subsequent one for a discussion on why we do it in two ways) and outputs them on the standard output. For each $x_i$, it prints the solution value, its expected value and its variance. On hovering at a solution value, the Signaloid system shows a pictorial representation (histogram) of its distribution.
 
 The distributions we seek are joint distributions with complex dependencies between the individual random variables (because all thesolutions are ultimately calculated in different ways from the same set of entries of $A$ and $b$). Hence the **calculations must be done on an auto-correlation tracking platform**.  
 
